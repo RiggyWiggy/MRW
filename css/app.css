@@ -3,3 +3,22 @@ body {
 	background-color: #C5C5C5;
 }
 
+
+video {
+	width: 100%;
+	height: auto;
+}
+
+.poster {
+	background-color: #000;
+}
+
+.filterCon ul {
+	display:inline;
+	list-style: none;
+
+}
+
+.filterCon li {
+	display:inline;
+}
