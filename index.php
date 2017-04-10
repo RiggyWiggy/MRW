@@ -1,3 +1,30 @@
+<?php
+//	ini_set("display_errors", 1);
+//	error_reporting(E_ALL); //MAC
+	
+	require_once("admin/phpscripts/init.php");
+	$tbl = "tbl_movies";
+	if(isset($_GET['filter'])){
+		//echo $_GET['filter'];
+		$filter = $_GET['filter'];
+		
+		
+		$tbl1 = "tbl_genre";
+		$tbl2 = "tbl_l_gg";
+		$col = "games_id";
+		$col1 = "genre_id";
+		$col2 = "genre_name";
+		$getMovies = filterType($tbl, $tbl1, $tbl2, $col, $col1, $col2, $filter);
+		
+
+	
+	}else{
+	$getMovies = getAll($tbl);	
+	}
+	
+
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
@@ -36,7 +63,8 @@
     </section>
   </div>
   <!--Posters-->
-  <section class="row text-center">
+  
+<!--  <section class="row text-center">
     <h2 class="hide">Poster</h2>
     <div class="small-12 large-12 columns">
       <div class="small-6 medium-4 large-2 columns"> <img src="images/temp-poster.jpg" alt="temp" class="poster"/> </div>
@@ -47,7 +75,34 @@
       <div class="small-6 medium-4 large-2 columns"> <img src="images/temp-poster.jpg" alt="temp" class="poster"/> </div>
     </div>
   </section>
+</section>-->
+
+<section class="row text-center">
+ <h2 class="hide">Poster</h2>
+<div class="small-12 large-12 columns">
+  <?php
+  
+  	if(!is_string($getMovies)) {
+		//echo "Object";
+		while($row = mysqli_fetch_array($getMovies)){
+		
+		echo " <div class='small-6 medium-4 large-2 columns'>";
+		echo "<img src=\"images/{$row['movies_fimg']}\" alt=\"{$row['movies_title']}\" class='poster'>";
+		echo "</div>";	
+		}
+	}
+	
+else{
+//		echo "String";
+	echo "<p>{$getMovies}</p>";
+	}
+  
+  ?>
+  </div>
 </section>
+
+
+
 
 <!--Details-->
 <section id="details"> 
@@ -78,36 +133,18 @@
     
     <!--Info--> 
     
-    <!--<div id="infoContent">
 
-<div class="filmHeader">
-  <section class="row text-center filmHeaderDesk">
-    <h2 class="hide">Film Header</h2>
-    <div class="small-4 small-offset-1 large-2 columns"> <img src="images/temp-poster.jpg" alt="temp"/> </div>
-    <div class="small-6 small-offset-1 large-2 columns end text-left">
-      <h4>Film Title</h4>
-      <h4>Year</h4>
-    </div>
-  </section>
-</div>
-
-  <section class="row">
-    <h3 class="hide">Film Info</h3> 
-    <h4>Plot Summary:</h4>
-    <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
-  </section>
-</div>-->
     
     <div id="infoContent">
       <section class="row">
-        <div class="small-12 large-4 columns ">
+        <div class="small-12 large-4 columns" id="plotSummary">
           <div class="small-4  large-6 columns"> <img src="images/temp-poster.jpg" alt="temp"/> </div>
           <div class="small-8 large-6 columns end text-left">
-            <h4>Film Title</h4>
-            <h4>Year</h4>
+            <h3 class="filmTitle">Film Title</h3>
+            <h4 class="filmYear">Year</h4>
           </div>
         </div>
-        <div class="small-12 large-8 columns ">
+        <div class="small-12 large-8 columns">
           <h3 class="hide">Film Info</h3>
           <h4>Plot Summary:</h4>
           <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
