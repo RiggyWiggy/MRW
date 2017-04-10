@@ -54,10 +54,13 @@ infoContent.style.display="none";
 function indexShow(e) {
 e.preventDefault();
 console.log("index");
+reviewContent.style.display="none";
+infoContent.style.display="block";
 backToFilms.style.display="none";
 index.style.display="block";
 details.style.display="none";
 video.pause();
+
 }
 
 function detailsShow(e) {
