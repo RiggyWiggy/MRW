@@ -1,24 +1,162 @@
 body {
 	font-family: 'Raleway', Arial, sans-serif;
-	background-color: #C5C5C5;
+}
+.desktop {
+	display: none;
+}
+.mobile {
+	display: block;
+}
+.logo {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+#logoBox {
+	position: relative;	
+	background-color: #5A5A5A;
+}
+#backToFilms {
+	position:absolute;
+	top: 14px;
+	left: 40px;
+	display: none;
+	width: 40px;
 }
 
+.content {
+}
+#details {
+	display: none;
+}
 
 video {
 	width: 100%;
 	height: auto;
 }
-
 .poster {
 	background-color: #000;
 }
+.filterBox {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	background-color: #9A9A9A;
+	
 
+}
+.filterCon {
+	white-space: nowrap;
+	overflow-x: scroll;
+	overflow-y: none;
+}
 .filterCon ul {
-	display:inline;
+	display: inline;
 	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.filterCon li {
+	display: inline;
+	margin-right: 14px;
+}
+.filterList {
+}
+.filterList ul {
+	margin: 0 auto;
+}
+footer {
+	position: fixed;
+	bottom: 0;
+}
+footer {
+	position: fixed;
+	bottom: 0;
+}
+.logoBox {
+	background-color: hsla(0,0%,65%,1.00);
+}
+
+.filmHeader {
+/*	margin-top: -6px;*/
+	background-color: #4A4A4A;
+	
+}
+.filmHeaderDesk {
+	padding-top: 20px;
+	background-color: #4A4A4A;
+	padding-bottom: 20px;
+}
+
+
+
+.filmTabs {
+
+background-color: #909090;
+
+text-align:center;
+
 
 }
 
+.filmTabsDesk {
+padding-top: 20px;
+padding-bottom: 10px;
+background-color: #909090;
+
+}
+
+#infoContent {
+/*	padding-top: 10px;*/
+	
+}
+#reviewContent {
+	padding-top: 10px;
+	display: none;
+}
+
+@media screen and (min-width: 64em) {
+.desktop {
+	display: block;
+}
+.mobile {
+	display: none;
+}
+
+.filterList {
+}
+.filterCon {
+	overflow: auto;
+	height: auto;/*	white-space: inherit;*/
+}
+.filterCon ul {
+	display: inline;
+	list-style: none;
+	margin-left: -14px;
+	padding: 0;
+}
 .filterCon li {
-	display:inline;
+	margin-right: 24px;
+}
+
+.filmHeader {
+background-color: hsla(0,0%,100%,0.00);
+}
+
+.filmTabs {
+
+text-align: left;
+background-color: hsla(0,0%,100%,0.00);
+
+}
+#content {
+/*	margin-top: 20px;*/
+}
+
+#backToFilms {
+	top: 22px;
+	left: 40px;
+	display: none;
+	width: 60px;
+}
+
+
 }
