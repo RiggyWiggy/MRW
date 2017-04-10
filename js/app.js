@@ -11,6 +11,28 @@ var backToFilms = document.querySelector("#backToFilms");
 var poster = document.querySelectorAll(".poster");
 
 
+
+//JSON
+
+$('.poster').on('click', function () {
+
+console.log("ajax");
+$.getJSON('includes/ajaxQuery.php', {movie:this.id}, function(data) {console.log(data);
+			$('.filmTitle').text(data.movies_title);
+			$('.filmYear').text(data.movies_year);
+			$('.filmPlot').text(data.movies_storyline);
+			$('.filmPoster').attr('src', 'images/' + data.movies_thumb);
+			$('.filmRunningTime').text(data.movies_runtime);
+			$('.filmPrice').text(data.movies_price);
+
+	});
+});
+
+
+
+//Site Nav
+
+
 function infoShow(e) {
 e.preventDefault();
 console.log("info");

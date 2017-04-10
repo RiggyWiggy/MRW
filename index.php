@@ -31,12 +31,12 @@
 <meta charset="utf-8" />
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Movie ReVu</title>
+<title>Movie Reviews</title>
 <link rel="stylesheet" href="css/foundation.css" />
 <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
-<h1 class="hide">Movie ReVeu</h1>
+<h1 class="hide">Movie Reviews</h1>
 <header id="logoBox">
   <section class="row">
     <div class="small-6 small-centered large-4 columns"> <img src="images/logo.svg" alt="logo" class="logo"> </div>
@@ -87,7 +87,7 @@
 		while($row = mysqli_fetch_array($getMovies)){
 		
 		echo " <div class='small-6 medium-4 large-2 columns'>";
-		echo "<img src=\"images/{$row['movies_fimg']}\" alt=\"{$row['movies_title']}\" class='poster'>";
+		echo "<img src=\"images/{$row['movies_fimg']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
 		echo "</div>";	
 		}
 	}
@@ -138,7 +138,7 @@ else{
     <div id="infoContent">
       <section class="row">
         <div class="small-12 large-4 columns" id="plotSummary">
-          <div class="small-4  large-6 columns"> <img src="images/temp-poster.jpg" alt="temp"/> </div>
+          <div class="small-4  large-6 columns"> <img src="images/temp-poster.jpg" alt="Movie Poster" class="filmPoster"> </div>
           <div class="small-8 large-6 columns end text-left">
             <h3 class="filmTitle">Film Title</h3>
             <h4 class="filmYear">Year</h4>
@@ -147,7 +147,15 @@ else{
         <div class="small-12 large-8 columns">
           <h3 class="hide">Film Info</h3>
           <h4>Plot Summary:</h4>
-          <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
+          <p class="filmPlot"> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
+          <h4>Runtime:</h4>
+          <p class="filmRunningTime">
+          0:00
+          </p>
+          <h4>Average Retail Price:</h4>
+          <p class="filmPrice">
+          $0.00
+          </p>
         </div>
       </section>
     </div>
