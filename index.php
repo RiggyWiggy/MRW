@@ -4,6 +4,7 @@
 	
 	require_once("admin/phpscripts/init.php");
 	$tbl = "tbl_movies";
+	
 	if(isset($_GET['filter'])){
 		//echo $_GET['filter'];
 		$filter = $_GET['filter'];
@@ -19,10 +20,9 @@
 
 	
 	}else{
-	$getMovies = getAll($tbl);	
+	$getMovies = getAll($tbl);
 	}
 	
-
 ?>
 
 <!doctype html>
@@ -62,9 +62,9 @@
       </div>
     </section>
   </div>
-  <!--Posters-->
+  <!--Posters--> 
   
-<!--  <section class="row text-center">
+  <!--  <section class="row text-center">
     <h2 class="hide">Poster</h2>
     <div class="small-12 large-12 columns">
       <div class="small-6 medium-4 large-2 columns"> <img src="images/temp-poster.jpg" alt="temp" class="poster"/> </div>
@@ -76,33 +76,27 @@
     </div>
   </section>
 </section>-->
-
-<section class="row text-center">
- <h2 class="hide">Poster</h2>
-<div class="small-12 large-12 columns">
-  <?php
+  
+  <section class="row text-center">
+    <h2 class="hide">Poster</h2>
+    <div class="small-12 large-12 columns">
+      <?php
   
   	if(!is_string($getMovies)) {
 		//echo "Object";
 		while($row = mysqli_fetch_array($getMovies)){
 		
 		echo " <div class='small-6 medium-4 large-2 columns'>";
-		echo "<img src=\"images/{$row['movies_fimg']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
+		echo "<img src=\"images/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
 		echo "</div>";	
 		}
 	}
 	
-else{
-//		echo "String";
-	echo "<p>{$getMovies}</p>";
-	}
   
   ?>
-  </div>
+    </div>
+  </section>
 </section>
-</section>
-
-
 
 <!--Details-->
 <section id="details"> 
@@ -112,7 +106,7 @@ else{
   <section class="row"> 
     <!--<h4 class="mobile">Movie Trailer:</h4>-->
     <h2 class="hide">Trailer Container</h2>
-    <video controls>
+    <video controls class="filmTrailer">
       <source src="movie.mp4" type="video/mp4">
       Your browser does not support video. </video>
   </section>
@@ -131,9 +125,7 @@ else{
   <!--Content-->
   <section id="content"> 
     
-    <!--Info--> 
-    
-
+    <!--Info-->
     
     <div id="infoContent">
       <section class="row">
@@ -149,37 +141,38 @@ else{
           <h4>Plot Summary:</h4>
           <p class="filmPlot"> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
           <h4>Runtime:</h4>
-          <p class="filmRunningTime">
-          0:00
-          </p>
+          <p class="filmRunningTime"> 0:00 </p>
           <h4>Average Retail Price:</h4>
-          <p class="filmPrice">
-          $0.00
-          </p>
+          <p class="filmPrice"> $0.00 </p>
         </div>
       </section>
     </div>
     
     <!--Review-->
+    
     <div id="reviewContent">
-      <section class="row">
+      <section class="row" id="reviewFormCon">
         <h3>Review the movie here!</h3>
         <form id="reviewForm" action="stories.php" method="post" class="small-12 small-centered columns">
           <fieldset>
             <label for="name">Name:</label>
-            <input type="text"  id="fname" name="name" size="30" placeholder="First Name:" value="">
+            <input type="text"  id="fname" name="name" size="30" placeholder="Username:" value="">
             <label for="comments">Your Review:</label>
-            <textarea name="comments" id="comments" cols="50" rows="8" placeholder="Share your story here..."></textarea>
+            <textarea name="comments" id="comments" cols="50" rows="8" placeholder="Your review goes here"></textarea>
             <div class="text-center">
               <input id="submit" type="submit" name="submit" value="Share">
             </div>
           </fieldset>
         </form>
       </section>
-      <section class="row">
+      <section class="row" id="reviews">
         <h3 class="hide">Film Review</h3>
         <h4>Name</h4>
         <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
+        <?php
+//AJAX Comments Go Here
+
+?>
       </section>
     </div>
   </section>

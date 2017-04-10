@@ -9,10 +9,10 @@ var index = document.querySelector("#index");
 var details = document.querySelector("#details");
 var backToFilms = document.querySelector("#backToFilms");
 var poster = document.querySelectorAll(".poster");
+var video = document.querySelector("video");
 
 
-
-//JSON
+//Movie Info - JSON
 
 $('.poster').on('click', function () {
 
@@ -23,10 +23,14 @@ $.getJSON('includes/ajaxQuery.php', {movie:this.id}, function(data) {console.log
 			$('.filmPlot').text(data.movies_storyline);
 			$('.filmPoster').attr('src', 'images/' + data.movies_thumb);
 			$('.filmRunningTime').text(data.movies_runtime);
-			$('.filmPrice').text(data.movies_price);
+			$('.filmPrice').text('$' + data.movies_price);
+			$('.filmTrailer').attr('src', 'videos/' + data.movies_trailer);
 
 	});
 });
+
+//Movie Comments
+
 
 
 
@@ -53,6 +57,7 @@ console.log("index");
 backToFilms.style.display="none";
 index.style.display="block";
 details.style.display="none";
+video.pause();
 }
 
 function detailsShow(e) {
