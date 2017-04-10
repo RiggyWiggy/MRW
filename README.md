@@ -1,4 +1,2 @@
-# MRW
-Movie Review Site
-
+# Movie Review Site
 Group Members: Alex Brown & Lucas McCallum
