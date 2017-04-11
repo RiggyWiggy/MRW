@@ -48,6 +48,7 @@
 <section id="index">
   <div class="filterBox">
     <section class="row">
+ 
       <h4 class="desktop">Categories</h4>
       <div class="small-12 large-12 columns filterCon">
         <ul class="filterList text-center">
@@ -60,6 +61,7 @@
           <li>Comedy</li>
         </ul>
       </div>
+    
     </section>
   </div>
   <!--Posters--> 
@@ -113,11 +115,11 @@
   <div class="filmTabs">
     <section class="row filmTabsDesk">
       <h2 class="hide">Film Tabs</h2>
-      <div class="small-6 large-2 columns "> <a href="#" id="infoLink">
-        <h4>Film Info</h4>
+      <div class="small-6 large-2 large-offset-8 columns filmTab"> <a href="#" id="infoLink" class="activeNav">
+        Film Info
         </a> </div>
-      <div class="small-6 large-2 columns end "> <a href="#" id="reviewLink">
-        <h4>Reviews</h4>
+      <div class="small-6 large-2 columns end"> <a href="#" id="reviewLink">
+        Reviews
         </a> </div>
     </section>
   </div>
@@ -127,16 +129,18 @@
     
     <!--Info-->
     
+    
     <div id="infoContent">
-      <section class="row">
-        <div class="small-12 large-4 columns" id="plotSummary">
-          <div class="small-4  large-6 columns"> <img src="images/temp-poster.jpg" alt="Movie Poster" class="filmPoster"> </div>
-          <div class="small-8 large-6 columns end text-left">
+      <section class="row infoCon">
+      
+        <div class="small-12 large-3 columns" id="filmHeader">
+          <div class="small-4  large-12 columns"> <img src="images/temp-poster.jpg" alt="Movie Poster" class="filmPoster"> </div>
+          <div class="small-8 large-12 columns end text-left">
             <h3 class="filmTitle">Film Title</h3>
             <h4 class="filmYear">Year</h4>
           </div>
         </div>
-        <div class="small-12 large-8 columns">
+        <div class="small-12 large-9 columns filmInfo">
           <h3 class="hide">Film Info</h3>
           <h4>Plot Summary:</h4>
           <p class="filmPlot"> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
@@ -145,15 +149,45 @@
           <h4>Average Retail Price:</h4>
           <p class="filmPrice"> $0.00 </p>
         </div>
+        
       </section>
     </div>
     
     <!--Review-->
     
     <div id="reviewContent">
-      <section class="row" id="reviewFormCon">
-        <h3>Review the movie here!</h3>
-        <form id="reviewForm" action="stories.php" method="post" class="small-12 small-centered columns">
+      <section class="row infoCon" id="reviewFormCon">
+     
+     
+     
+     
+     
+     
+     
+     <div id="reviews">
+        <h3 class="hide">Film Review</h3>
+        <h4>Name</h4>
+        <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
+        
+        
+        
+        <?php
+//AJAX Comments Go Here
+
+?>
+</div>
+
+     
+     
+     
+     
+   
+      
+        <h3 class="text-center shareText">Share Your Review About The Movie Here!</h3>
+        
+        
+        
+<form id="reviewForm" action="stories.php" method="post">
           <fieldset>
             <label for="name">Name:</label>
             <input type="text"  id="fname" name="name" size="30" placeholder="Username:" value="">
@@ -164,16 +198,16 @@
             </div>
           </fieldset>
         </form>
-      </section>
-      <section class="row" id="reviews">
-        <h3 class="hide">Film Review</h3>
-        <h4>Name</h4>
-        <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
-        <?php
-//AJAX Comments Go Here
+<!--</section>-->
+    
+      
 
-?>
+
       </section>
+      
+      
+      
+      
     </div>
   </section>
 </section>
