@@ -10,7 +10,7 @@ var details = document.querySelector("#details");
 var backToFilms = document.querySelector("#backToFilms");
 var poster = document.querySelectorAll(".poster");
 var video = document.querySelector("video");
-
+var httpRequest;
 
 //Movie Info - JSON
 
@@ -26,7 +26,7 @@ $.getJSON('includes/ajaxQuery.php', {movie:this.id}, function(data) {console.log
 			$('.filmPrice').text('$' + data.movies_price);
 			$('.filmTrailer').attr('src', 'videos/' + data.movies_trailer);
 			/*$('.filmHeader').attr('src', 'images/' + data.movies_bimg);*/
-			
+
 			$('body').css('backgroundImage','url('+'images/' + data.movies_bimg+')');
 	});
 });
@@ -34,8 +34,58 @@ $.getJSON('includes/ajaxQuery.php', {movie:this.id}, function(data) {console.log
 //Movie Comments
 
 
+function initRequest(){
+  httpRequest = new XMLHttpRequest();
+    if(!httpRequest){
+        console.log('Please switch to a newer browser.');
+        return false;
+    }
+};
+
+function changeRequest(){
+  httpRequest.onreadystatechange = function(){
+    if (httpRequest.readyState === XMLHttpRequest.DONE && httpRequest.status === 200)
+      movieCont.innerHTML = httpRequest.responseText;
+
+			var poster = document.querySelectorAll(".poster");
+			//console.log(poster);
+			$('.poster').on('click', function () {
+
+			//console.log("ajax");
+			$.getJSON('includes/ajaxQuery.php', {movie:this.id}, function(data) {console.log(data);
+						$('.filmTitle').text(data.movies_title);
+						$('.filmYear').text('(' + data.movies_year + ')');
+						$('.filmPlot').text(data.movies_storyline);
+						$('.filmPoster').attr('src', 'images/' + data.movies_fimg);
+						$('.filmRunningTime').text(data.movies_runtime);
+						$('.filmPrice').text('$' + data.movies_price);
+						$('.filmTrailer').attr('src', 'videos/' + data.movies_trailer);
+						/*$('.filmHeader').attr('src', 'images/' + data.movies_bimg);*/
+
+						$('body').css('backgroundImage','url('+'images/' + data.movies_bimg+')');
+				});
+			});
+			for(var i=0; i < poster.length; i++){
+				poster[i].addEventListener("click", detailsShow, false);
+			}
+    };
+
+    if (this.id == "all"){
+      httpRequest.open('GET', 'includes/grabMovies.php');
+    }else{
+       httpRequest.open('GET', 'includes/grabMovies.php' + "?filter=" + this.id);
+    }
+
+    httpRequest.send();
 
 
+
+
+};
+
+function detailsShow1() {
+console.log("xd");
+}
 
 
 //Site Nav
@@ -85,9 +135,15 @@ infoLink.addEventListener("click", infoShow, false);
 reviewLink.addEventListener("click", reviewShow, false);
 backToFilms.addEventListener("click", indexShow, false);
 
-for(var i=0; i < poster.length; i++){	
+for(var i=0; i < poster.length; i++){
 	poster[i].addEventListener("click", detailsShow, false);
 }
 
+initRequest();
+var movieCont = document.querySelector('.movie-container');
+var portfolioNav = document.querySelectorAll(".nav-filter");
+[].forEach.call(portfolioNav, function(initFilter){
+initFilter.addEventListener('click', changeRequest, false);
+});
 
 })();
