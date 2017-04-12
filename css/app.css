@@ -1,5 +1,27 @@
 body {
 	font-family: 'Raleway', Arial, sans-serif;
+	background-color: #333;
+	background-image: url(../images/nobImg.jpg);
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	color: #E2E2E1;
+
+}
+a {
+	color: #333;
+}
+a:hover {
+	color: #A2D729;
+}
+
+h1, h2, h3, h4 {
+	color: #A2D729;
+	font-weight: 700;
+}
+
+a:visted {
+ color: #A2D729;
 }
 .desktop {
 	display: none;
@@ -13,7 +35,7 @@ body {
 }
 #logoBox {
 	position: relative;
-	background-color: #5A5A5A;
+	background-color: #333;
 }
 #backToFilms {
 	position: absolute;
@@ -22,7 +44,8 @@ body {
 	display: none;
 	width: 40px;
 }
-.content {
+#content {
+	
 }
 #details {
 	display: none;
@@ -35,17 +58,28 @@ video {
 	height: 200px;
 	width: 155px;
 	margin-bottom: 20px;
-	
 }
 .filterBox {
 	margin-bottom: 20px;
+	padding-top: 10px;
 	padding-bottom: 10px;
-	background-color: #9A9A9A;
+	font-weight: 500;
+	background-color:hsla(0,0%,100%,0.60);
+	
+	
 }
+
+.filterBox h4 {
+	font-weight: 700;
+	color: #333;
+}
+
+
 .filterCon {
 	white-space: nowrap;
 	overflow-x: scroll;
 	overflow-y: none;
+	color: #333;
 }
 .filterCon ul {
 	display: inline;
@@ -57,6 +91,7 @@ video {
 	display: inline;
 	margin-right: 14px;
 }
+
 .filterList {
 }
 .filterList ul {
@@ -71,43 +106,84 @@ footer {
 	bottom: 0;
 }
 .logoBox {
-	background-color: hsla(0,0%,65%,1.00);
+	/*background-color: hsla(0,0%,65%,1.00);*/
 }
-.filmHeader {
-	background-color: #4A4A4A;
+
+.filmTitle {
+	color: #333;
 }
+
+.filmYear {
+	color: #333;
+}
+
 .filmHeaderDesk {
 	padding-top: 20px;
-	background-color: #4A4A4A;
+	/*background-color: #E2E2E1;*/
 	padding-bottom: 20px;
 }
 .filmTabs {
-	background-color: #909090;
+	/*background-color: #E2E2E1;*/
 	text-align: center;
 	margin-top: -6px;
+	
 }
+.filmTabs a {
+	color: #FAFFFD;
+	font-weight: 700;
+	font-size: 1.2em;
+}
+
+.filmTabs a:hover {
+	color: #A2D729;
+}
+
 .filmTabsDesk {
 	padding-top: 20px;
-	padding-bottom: 10px;
-	background-color: #909090;
+	padding-bottom: 20px;
+	
+	background-color: #333;
 }
+.filmTab {
+	border-right-width: 2px;
+	border-right-style:solid;
+	border-right-color: #fff;
+}
+
+
 #infoContent {
-	padding-top: 20px;
+/*padding-top: 20px;*/
 }
+
+
 #reviewContent {
-	padding-top: 10px;
+	/*padding-top: 10px;*/
 	display: none;
 }
-#plotSummary {
+
+#reviewFormCon {
+padding-top: 10px;	
+}
+
+
+
+
+#filmHeader {
 	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	/*background-color: hsla(0,0%,0%,0.60);*/
+	background-color: hsla(78,69%,50%,0.79);
 }
 .filmTitle {
 	font-size: 1.6em;
 	font-weight: 700;
+	color: #FAFFFD;
 }
 .filmYear {
 	font-size: 1.2em;
 	font-weight: 700;
+	color: #FAFFFD;
 }
 #submit {
 	width: 100%;
@@ -115,7 +191,56 @@ footer {
 }
 #reviews {
 	margin-top: 20px;
+	overflow:scroll;
+	overflow-x: none;
 }
+.activeNav {
+	border-bottom-width: 2px;
+	border-bottom-style:solid;
+	border-bottom-color: #A2D729;
+}
+
+.infoCon {
+background-color:hsla(0,0%,34%,0.85);
+}
+
+.shareText {
+	margin-top: 60px;
+}
+
+
+#contactForm textarea {
+	resize: none;
+}
+
+
+label {
+	color: #A2D729;
+	font-weight: 700;
+}
+#submit {
+	width: 175px;
+	height: 60px;
+	text-align: center;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #333;
+	border: 1px solid #555555;
+	margin-top: 10px;
+	color: #A2D729;
+	font-size: 14px;
+	font-weight: bold;
+	transition: all 0.3s ease 0s;
+}
+#submit:hover {
+	background-color: #A2D729;
+	border: 1px solid #FAFFFD;
+	color: #FAFFFD;
+}
+
+
 
 @media screen and (min-width: 64em) {
 .desktop {
@@ -124,11 +249,17 @@ footer {
 .mobile {
 	display: none;
 }
-.filterList {
+.filterBox {
+	/*margin-top:20px;*/
+	margin-bottom: 40px;
+	/*margin-left: 68px;*/
 }
+
+
 .filterCon {
 	overflow: auto;
 	height: auto;/*	white-space: inherit;*/
+	
 }
 .filterCon ul {
 	display: inline;
@@ -139,13 +270,45 @@ footer {
 .filterCon li {
 	margin-right: 24px;
 }
+
+
 .filmHeader {
+	
 	background-color: hsla(0,0%,100%,0.00);
+
 }
+#filmHeader {
+	/*height: 500px;*/
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+
 .filmTabs {
-	text-align: left;
+	text-align: center;
 	background-color: hsla(0,0%,100%,0.00);
+
 }
+
+
+.filmInfo {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	padding-left: 60px;
+	padding-right: 60px;
+
+	
+}
+
+
+
+.filmPoster {
+	width: 100%;
+}
+.filmTitle {
+	margin-top: 20px;
+}
+
 #backToFilms {
 	top: 22px;
 	left: 40px;
@@ -153,9 +316,29 @@ footer {
 	width: 60px;
 }
 
+.shareText {
+	margin-top: 100px;
+}
+
+#reviewFormCon {
+padding-top: 40px;	
+padding-left: 40px;
+padding-right: 40px;
+}
+
+#reviewForm {
+	width: 60%;
+	margin: 0 auto;
+}
+
+#reviews {
+	width: 80%;
+	margin: 0 auto;
+}
+
+
 #submit {
 	width: 200px;
 	height: 40px;
 }
-
 }
