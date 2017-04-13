@@ -1,28 +1,29 @@
 <?php
 //	ini_set("display_errors", 1);
 //	error_reporting(E_ALL); //MAC
-	
+
 	require_once("admin/phpscripts/init.php");
-	$tbl = "tbl_movies";
 	
+	$tbl = "tbl_movies";
+
 	if(isset($_GET['filter'])){
 		//echo $_GET['filter'];
 		$filter = $_GET['filter'];
-		
-		
+
+
 		$tbl1 = "tbl_genre";
 		$tbl2 = "tbl_l_gg";
 		$col = "games_id";
 		$col1 = "genre_id";
 		$col2 = "genre_name";
 		$getMovies = filterType($tbl, $tbl1, $tbl2, $col, $col1, $col2, $filter);
-		
 
-	
+
+
 	}else{
 	$getMovies = getAll($tbl);
 	}
-	
+
 ?>
 
 <!doctype html>
@@ -36,6 +37,7 @@
 <link rel="stylesheet" href="css/app.css" />
 </head>
 <body>
+	<div class=''>
 <h1 class="hide">Movie Reviews</h1>
 <header id="logoBox">
   <section class="row">
@@ -48,24 +50,22 @@
 <section id="index">
   <div class="filterBox">
     <section class="row">
- 
+	
       <h4 class="desktop">Categories</h4>
       <div class="small-12 large-12 columns filterCon">
         <ul class="filterList text-center">
-          <li>Action</li>
-          <li>Comedy</li>
-          <li>Comedy</li>
-          <li>Comedy</li>
-          <li>Comedy</li>
-          <li>Comedy</li>
-          <li>Comedy</li>
+					  <li class='nav-filter' id='all'>All</li>
+          <li class='nav-filter' id='action'>Action</li>
+          <li class='nav-filter' id='comedy'>Comedy</li>
+          <li class='nav-filter' id='family'>Family</li>
+					<li class='nav-filter' id='horror'>Horror</li>
         </ul>
       </div>
-    
+
     </section>
   </div>
-  <!--Posters--> 
-  
+  <!--Posters-->
+
   <!--  <section class="row text-center">
     <h2 class="hide">Poster</h2>
     <div class="small-12 large-12 columns">
@@ -78,34 +78,32 @@
     </div>
   </section>
 </section>-->
-  
-  <section class="row text-center">
+
+  <section class="row text-center movie-container">
     <h2 class="hide">Poster</h2>
     <div class="small-12 large-12 columns">
-      <?php
-  
-  	if(!is_string($getMovies)) {
-		//echo "Object";
-		while($row = mysqli_fetch_array($getMovies)){
-		
-		echo " <div class='small-6 medium-4 large-2 columns'>";
-		echo "<img src=\"images/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
-		echo "</div>";	
+			<?php
+			if(!is_string($getMovies)) {
+			//echo "Object";
+			while($row = mysqli_fetch_array($getMovies)){
+
+			echo " <div class='small-6 medium-4 large-2 columns columnsGrid'>";
+			echo "<img src=\"images/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
+			echo "</div>";
+			}
 		}
-	}
-	
-  
-  ?>
+
+?>
     </div>
   </section>
 </section>
 
 <!--Details-->
-<section id="details"> 
-  
+<section id="details">
+
   <!--Video-->
-  
-  <section class="row"> 
+
+  <section class="row">
     <!--<h4 class="mobile">Movie Trailer:</h4>-->
     <h2 class="hide">Trailer Container</h2>
     <video controls class="filmTrailer">
@@ -123,16 +121,16 @@
         </a> </div>
     </section>
   </div>
-  
+
   <!--Content-->
-  <section id="content"> 
-    
+  <section id="content">
+
     <!--Info-->
-    
-    
+
+
     <div id="infoContent">
       <section class="row infoCon">
-      
+
         <div class="small-12 large-3 columns" id="filmHeader">
           <div class="small-4  large-12 columns"> <img src="images/temp-poster.jpg" alt="Movie Poster" class="filmPoster"> </div>
           <div class="small-8 large-12 columns end text-left">
@@ -149,44 +147,41 @@
           <h4>Average Retail Price:</h4>
           <p class="filmPrice"> $0.00 </p>
         </div>
-        
+
       </section>
     </div>
-    
+
     <!--Review-->
-    
+
     <div id="reviewContent">
       <section class="row infoCon" id="reviewFormCon">
-     
-     
-     
-     
-     
-     
-     
+
+
+
+
+
+
+
      <div id="reviews">
         <h3 class="hide">Film Review</h3>
         <h4>Name</h4>
         <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
-        
-        
-        
-        <?php
-//AJAX Comments Go Here
 
-?>
+
+
+
 </div>
 
-     
-     
-     
-     
-   
-      
+
+
+
+
+
+
         <h3 class="text-center shareText">Share Your Review About The Movie Here!</h3>
-        
-        
-        
+
+
+
 <form id="reviewForm" action="stories.php" method="post">
           <fieldset>
             <label for="name">Name:</label>
@@ -199,22 +194,23 @@
           </fieldset>
         </form>
 <!--</section>-->
-    
-      
+
+
 
 
       </section>
-      
-      
-      
-      
+
+
+
+
     </div>
   </section>
 </section>
 <footer> </footer>
-<script src="js/vendor/jquery.min.js"></script> 
-<script src="js/vendor/what-input.min.js"></script> 
-<script src="js/foundation.min.js"></script> 
+</div>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/what-input.min.js"></script>
+<script src="js/foundation.min.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

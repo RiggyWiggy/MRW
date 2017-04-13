@@ -8,6 +8,13 @@ body {
 	color: #E2E2E1;
 
 }
+
+/*.columns { float: left !important; }*/
+
+.columnsGrid {
+	float: left !important;
+}
+
 a {
 	color: #333;
 }
@@ -46,6 +53,7 @@ a:visted {
 }
 #content {
 	
+	
 }
 #details {
 	display: none;
@@ -56,7 +64,7 @@ video {
 }
 .poster {
 	height: 200px;
-	width: 155px;
+	width: 145px;
 	margin-bottom: 20px;
 }
 .filterBox {
@@ -66,7 +74,8 @@ video {
 	font-weight: 500;
 	background-color:hsla(0,0%,100%,0.60);
 	
-	
+	height: 44px;
+	overflow: hidden;	
 }
 
 .filterBox h4 {
@@ -80,6 +89,9 @@ video {
 	overflow-x: scroll;
 	overflow-y: none;
 	color: #333;
+	
+	height: 54px;
+
 }
 .filterCon ul {
 	display: inline;
@@ -188,6 +200,7 @@ padding-top: 10px;
 #submit {
 	width: 100%;
 	height: 40px;
+	margin-bottom: 20px;
 }
 #reviews {
 	margin-top: 20px;
@@ -240,7 +253,9 @@ label {
 	color: #FAFFFD;
 }
 
-
+.nav-filter {
+	cursor:default;
+}
 
 @media screen and (min-width: 64em) {
 .desktop {
@@ -253,13 +268,18 @@ label {
 	/*margin-top:20px;*/
 	margin-bottom: 40px;
 	/*margin-left: 68px;*/
+	
+	/*overflow:auto;*/
+	height: auto;
 }
 
 
 .filterCon {
 	overflow: auto;
 	height: auto;/*	white-space: inherit;*/
+
 	
+
 }
 .filterCon ul {
 	display: inline;
