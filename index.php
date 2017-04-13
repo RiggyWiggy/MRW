@@ -3,7 +3,7 @@
 //	error_reporting(E_ALL); //MAC
 
 	require_once("admin/phpscripts/init.php");
-	
+
 	$tbl = "tbl_movies";
 
 	if(isset($_GET['filter'])){
@@ -50,18 +50,16 @@
 <section id="index">
   <div class="filterBox">
     <section class="row">
-
       <h4 class="desktop">Categories</h4>
       <div class="small-12 large-12 columns filterCon">
         <ul class="filterList text-center">
-					  <li class='nav-filter' id='all'>All</li>
+					 <li class='nav-filter' id='all'>All</li>
           <li class='nav-filter' id='action'>Action</li>
           <li class='nav-filter' id='comedy'>Comedy</li>
           <li class='nav-filter' id='family'>Family</li>
 					<li class='nav-filter' id='horror'>Horror</li>
         </ul>
       </div>
-
     </section>
   </div>
   <!--Posters-->
@@ -164,14 +162,13 @@
 
      <div id="reviews">
         <h3 class="hide">Film Review</h3>
-        <h4>Name</h4>
-        <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
+        <h4 class='review-name'>Name</h4>
+        <p class='review-desc'> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
 
 
 
         <?php
 //AJAX Comments Go Here
-
 ?>
 </div>
 
@@ -185,14 +182,14 @@
 
 
 
-<form id="reviewForm" action="stories.php" method="post">
+<form id="reviewForm" action="index.php" method="post">
           <fieldset>
             <label for="name">Name:</label>
             <input type="text"  id="fname" name="name" size="30" placeholder="Username:" value="">
             <label for="comments">Your Review:</label>
             <textarea name="comments" id="comments" cols="50" rows="8" placeholder="Your review goes here"></textarea>
             <div class="text-center">
-              <input id="submit" type="submit" name="submit" value="Share">
+              <input class='submit-review' id="submit" type="submit" name="submit" value="Share">
             </div>
           </fieldset>
         </form>
