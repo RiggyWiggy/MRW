@@ -2,33 +2,23 @@ body {
 	font-family: 'Raleway', Arial, sans-serif;
 	background-color: #333;
 	background-image: url(../images/nobImg.jpg);
-	background-position:center;
-	background-size:cover;
-	background-repeat:no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	color: #E2E2E1;
-
 }
-
-/*.columns { float: left !important; }*/
-
 .columnsGrid {
 	float: left !important;
 }
-
 a {
 	color: #333;
 }
 a:hover {
 	color: #A2D729;
 }
-
 h1, h2, h3, h4 {
 	color: #A2D729;
 	font-weight: 700;
-}
-
-a:visted {
- color: #A2D729;
 }
 .desktop {
 	display: none;
@@ -51,10 +41,6 @@ a:visted {
 	display: none;
 	width: 40px;
 }
-#content {
-	
-	
-}
 #details {
 	display: none;
 }
@@ -72,26 +58,21 @@ video {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	font-weight: 500;
-	background-color:hsla(0,0%,100%,0.60);
-	
+	background-color: hsla(0,0%,100%,0.60);
 	height: 44px;
-	overflow: hidden;	
+	overflow: hidden;
 }
-
-.filterBox h4 {
+.filterBox h2 {
 	font-weight: 700;
 	color: #333;
+	font-size: 1.5em;
 }
-
-
 .filterCon {
 	white-space: nowrap;
 	overflow-x: scroll;
-	overflow-y: none;
+	overflow-y: hidden;
 	color: #333;
-	
 	height: 54px;
-
 }
 .filterCon ul {
 	display: inline;
@@ -103,7 +84,6 @@ video {
 	display: inline;
 	margin-right: 14px;
 }
-
 .filterList {
 }
 .filterList ul {
@@ -117,74 +97,48 @@ footer {
 	position: fixed;
 	bottom: 0;
 }
-.logoBox {
-	/*background-color: hsla(0,0%,65%,1.00);*/
-}
-
 .filmTitle {
 	color: #333;
 }
-
 .filmYear {
 	color: #333;
 }
-
 .filmHeaderDesk {
 	padding-top: 20px;
-	/*background-color: #E2E2E1;*/
 	padding-bottom: 20px;
 }
 .filmTabs {
-	/*background-color: #E2E2E1;*/
 	text-align: center;
 	margin-top: -6px;
-	
 }
 .filmTabs a {
 	color: #FAFFFD;
 	font-weight: 700;
 	font-size: 1.2em;
 }
-
 .filmTabs a:hover {
 	color: #A2D729;
 }
-
 .filmTabsDesk {
 	padding-top: 20px;
 	padding-bottom: 20px;
-	
 	background-color: #333;
 }
 .filmTab {
 	border-right-width: 2px;
-	border-right-style:solid;
+	border-right-style: solid;
 	border-right-color: #fff;
 }
-
-
-#infoContent {
-/*padding-top: 20px;*/
-}
-
-
 #reviewContent {
-	/*padding-top: 10px;*/
 	display: none;
 }
-
 #reviewFormCon {
-padding-top: 10px;	
+	padding-top: 10px;
 }
-
-
-
-
 #filmHeader {
 	margin-bottom: 20px;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	/*background-color: hsla(0,0%,0%,0.60);*/
 	background-color: hsla(78,69%,50%,0.79);
 }
 .filmTitle {
@@ -204,29 +158,23 @@ padding-top: 10px;
 }
 #reviews {
 	margin-top: 20px;
-	overflow:scroll;
-	overflow-x: none;
+	overflow: scroll;
+	overflow-x: hidden;
 }
 .activeNav {
 	border-bottom-width: 2px;
-	border-bottom-style:solid;
+	border-bottom-style: solid;
 	border-bottom-color: #A2D729;
 }
-
 .infoCon {
-background-color:hsla(0,0%,34%,0.85);
+	background-color: hsla(0,0%,34%,0.85);
 }
-
 .shareText {
 	margin-top: 60px;
 }
-
-
 #contactForm textarea {
 	resize: none;
 }
-
-
 label {
 	color: #A2D729;
 	font-weight: 700;
@@ -252,9 +200,11 @@ label {
 	border: 1px solid #FAFFFD;
 	color: #FAFFFD;
 }
-
 .nav-filter {
-	cursor:default;
+	cursor: default;
+}
+.container {
+	position: relative;
 }
 
 @media screen and (min-width: 64em) {
@@ -265,21 +215,13 @@ label {
 	display: none;
 }
 .filterBox {
-	/*margin-top:20px;*/
 	margin-bottom: 40px;
-	/*margin-left: 68px;*/
-	
 	/*overflow:auto;*/
 	height: auto;
 }
-
-
 .filterCon {
 	overflow: auto;
-	height: auto;/*	white-space: inherit;*/
-
-	
-
+	height: auto;
 }
 .filterCon ul {
 	display: inline;
@@ -290,73 +232,51 @@ label {
 .filterCon li {
 	margin-right: 24px;
 }
-
-
 .filmHeader {
-	
 	background-color: hsla(0,0%,100%,0.00);
-
 }
 #filmHeader {
-	/*height: 500px;*/
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
-
-
 .filmTabs {
 	text-align: center;
 	background-color: hsla(0,0%,100%,0.00);
-
 }
-
-
 .filmInfo {
 	padding-top: 40px;
 	padding-bottom: 40px;
 	padding-left: 60px;
 	padding-right: 60px;
-
-	
 }
-
-
-
 .filmPoster {
 	width: 100%;
 }
 .filmTitle {
 	margin-top: 20px;
 }
-
 #backToFilms {
 	top: 22px;
 	left: 40px;
 	display: none;
 	width: 60px;
 }
-
 .shareText {
 	margin-top: 100px;
 }
-
 #reviewFormCon {
-padding-top: 40px;	
-padding-left: 40px;
-padding-right: 40px;
+	padding-top: 40px;
+	padding-left: 40px;
+	padding-right: 40px;
 }
-
 #reviewForm {
 	width: 60%;
 	margin: 0 auto;
 }
-
 #reviews {
 	width: 80%;
 	margin: 0 auto;
 }
-
-
 #submit {
 	width: 200px;
 	height: 40px;
