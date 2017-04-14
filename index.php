@@ -153,7 +153,7 @@
 
     <div id="reviewContent">
       <section class="row infoCon" id="reviewFormCon">
-<h3 class='review-confirmation'></h3>
+
 <h2>Latest Review:</h2>
 
 
@@ -178,7 +178,7 @@
 
 
 
-
+<h3 class='review-confirmation'></h3>
         <h3 class="text-center shareText">Share Your Review About The Movie Here!</h3>
 
 

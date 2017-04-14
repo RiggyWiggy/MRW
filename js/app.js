@@ -11,6 +11,7 @@ var backToFilms = document.querySelector("#backToFilms");
 var poster = document.querySelectorAll(".poster");
 var video = document.querySelector("video");
 var submitBtn = document.querySelector(".submit-review");
+var confirm = document.querySelector(".review-confirmation");
 var httpRequest;
 var request;
 var checker;
@@ -61,6 +62,9 @@ $.ajax({
          data: serializedData,
          type: "POST",
          url: "includes/reviews.php",
+				 success: function(){
+	confirm.innerHTML = "Your review has been submitted!";
+}
 });
 
 //}
