@@ -4,7 +4,6 @@
 function getAll($tbl){
 require_once("connect.php");
 $queryAll = "SELECT * FROM {$tbl}";
-
 //	echo $queryAll;
 $runAll = mysqli_query($link, $queryAll);
 

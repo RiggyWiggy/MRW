@@ -10,6 +10,18 @@ body {
 .columnsGrid {
 	float: left !important;
 }
+.selectedMovie{
+	display: none;
+}
+.nav-filter{
+	cursor: pointer;
+}
+.movie-single{
+	cursor: pointer;
+}
+#backToFilms{
+	cursor: pointer;
+}
 a {
 	color: #333;
 }
@@ -41,6 +53,9 @@ h1, h2, h3, h4 {
 	display: none;
 	width: 40px;
 }
+#content {
+
+}
 #details {
 	display: none;
 }
@@ -61,6 +76,7 @@ video {
 	background-color: hsla(0,0%,100%,0.60);
 	height: 44px;
 	overflow: hidden;
+	background-color:hsla(0,0%,100%,0.60);
 }
 .filterBox h2 {
 	font-weight: 700;
@@ -134,6 +150,7 @@ footer {
 }
 #reviewFormCon {
 	padding-top: 10px;
+padding-top: 10px;
 }
 #filmHeader {
 	margin-bottom: 20px;
@@ -221,7 +238,7 @@ label {
 }
 .filterCon {
 	overflow: auto;
-	height: auto;
+	height: auto;/*	white-space: inherit;*/
 }
 .filterCon ul {
 	display: inline;
@@ -265,9 +282,10 @@ label {
 	margin-top: 100px;
 }
 #reviewFormCon {
-	padding-top: 40px;
-	padding-left: 40px;
-	padding-right: 40px;
+padding-top: 40px;
+padding-left: 40px;
+padding-right: 40px;
+
 }
 #reviewForm {
 	width: 60%;
