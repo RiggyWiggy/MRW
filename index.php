@@ -3,26 +3,9 @@
 //	error_reporting(E_ALL); //MAC
 
 	require_once("admin/phpscripts/init.php");
-	
+
 	$tbl = "tbl_movies";
-
-	if(isset($_GET['filter'])){
-		//echo $_GET['filter'];
-		$filter = $_GET['filter'];
-
-
-		$tbl1 = "tbl_genre";
-		$tbl2 = "tbl_l_gg";
-		$col = "games_id";
-		$col1 = "genre_id";
-		$col2 = "genre_name";
-		$getMovies = filterType($tbl, $tbl1, $tbl2, $col, $col1, $col2, $filter);
-
-
-
-	}else{
 	$getMovies = getAll($tbl);
-	}
 
 ?>
 
@@ -69,19 +52,18 @@
     
     <section class="row text-center movie-container">
       <h2 class="hide">Poster</h2>
-      <div class="small-12 large-12 columns">
-        <?php
+      <?php
 			if(!is_string($getMovies)) {
 			//echo "Object";
 			while($row = mysqli_fetch_array($getMovies)){
 
-			echo " <div class='small-6 medium-4 large-2 columns columnsGrid'>";
+			echo " <div class='small-6 medium-4 large-2 columns movie-single columnsGrid'>";
 			echo "<img src=\"images/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
 			echo "</div>";
 			}
 		}
+
 ?>
-      </div>
     </section>
   </section>
   
@@ -135,20 +117,24 @@
       
       <div id="reviewContent">
         <section class="row infoCon" id="reviewFormCon">
+          <h2 class='text-center'>Latest Review:</h2>
           <div id="reviews">
             <h3 class="hide">Film Review</h3>
-            <h4>Name</h4>
-            <p> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
+            <h4 class='review-name'>Name</h4>
+            <p class='review-desc'> Vivamus dignissim augue vitae risus luctus dignissim. Ut dictum tortor id nulla euismod sagittis. Morbi egestas felis scelerisque, vestibulum erat ut, sollicitudin augue. Praesent nisl ipsum, finibus sit amet lacus et, tempus porta orci. Integer non consectetur felis, sit amet consequat libero. Vestibulum eget rhoncus ante. Nulla ullamcorper nisl a sapien blandit auctor. Vivamus non quam sed lectus elementum placerat. Phasellus a lobortis nisi. </p>
           </div>
+          <br>
+          <h3 class='text-center review-confirmation'></h3><!--Empty till js input-->          
           <h3 class="text-center shareText">Share Your Review About The Movie Here!</h3>
-          <form id="reviewForm" action="stories.php" method="post">
+          <form id="reviewForm" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
             <fieldset>
               <label for="name">Name:</label>
-              <input type="text"  id="name" name="name" size="30" placeholder="Username:" value="">
+              <input type="text" id="name" name="name" size="30" placeholder="Author:" value="">
+              <input type="text" name="movie" size="30" class='selectedMovie' placeholder="Movie:" value="">
               <label for="comments">Your Review:</label>
               <textarea name="comments" id="comments" cols="50" rows="8" placeholder="Your review goes here"></textarea>
               <div class="text-center">
-                <input id="submit" type="submit" name="submit" value="Share">
+                <input class='submit-review' id="submit" type="submit" name="submit" value="submit">
               </div>
             </fieldset>
           </form>

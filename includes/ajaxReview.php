@@ -10,11 +10,11 @@
 	$mysqli->set_charset("utf8");
 
 
-	$movies = $_GET["movie"];
+	$reviewid = $_GET["revid"];
 
-	$myQuery = "SELECT * FROM tbl_movies WHERE movies_title='$movies'";
+	$myQuery = "SELECT * FROM tbl_review WHERE review_id ='$reviewid' ";
 
 	$result = mysqli_query($mysqli, $myQuery);
+
 	echo json_encode(mysqli_fetch_assoc($result));
-	
 ?>

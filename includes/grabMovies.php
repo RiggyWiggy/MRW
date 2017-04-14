@@ -63,11 +63,6 @@ while($row = mysqli_fetch_array($getMovies)){
 echo " <div class='small-6 medium-4 large-2 columns columnsGrid'>";
 echo "<img src=\"images/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
 echo "</div>";
-
-
-
-
-
 }
 }
 
