@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2017 at 06:37 AM
+-- Generation Time: Apr 13, 2017 at 01:12 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -17,26 +17,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_movies`
+-- Database: db_movies
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_cast`
+-- Table structure for table tbl_cast
 --
 
-CREATE TABLE `tbl_cast` (
-  `cast_id` smallint(4) UNSIGNED NOT NULL,
-  `cast_fname` varchar(75) NOT NULL,
-  `cast_lname` varchar(75) NOT NULL
+CREATE TABLE tbl_cast (
+  cast_id smallint(4) UNSIGNED NOT NULL,
+  cast_fname varchar(75) NOT NULL,
+  cast_lname varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_cast`
+-- Dumping data for table tbl_cast
 --
 
-INSERT INTO `tbl_cast` (`cast_id`, `cast_fname`, `cast_lname`) VALUES
+INSERT INTO tbl_cast (cast_id, cast_fname, cast_lname) VALUES
 (1, 'Kevin', 'Bacon'),
 (2, 'Fred', 'Ward'),
 (3, 'Finn', 'Carter'),
@@ -207,20 +207,20 @@ INSERT INTO `tbl_cast` (`cast_id`, `cast_fname`, `cast_lname`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_cat`
+-- Table structure for table tbl_cat
 --
 
-CREATE TABLE `tbl_cat` (
-  `cat_id` smallint(4) UNSIGNED NOT NULL,
-  `cat_name` varchar(30) NOT NULL,
-  `cat_desc` varchar(245) NOT NULL
+CREATE TABLE tbl_cat (
+  cat_id smallint(4) UNSIGNED NOT NULL,
+  cat_name varchar(30) NOT NULL,
+  cat_desc varchar(245) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_cat`
+-- Dumping data for table tbl_cat
 --
 
-INSERT INTO `tbl_cat` (`cat_id`, `cat_name`, `cat_desc`) VALUES
+INSERT INTO tbl_cat (cat_id, cat_name, cat_desc) VALUES
 (1, 'action', 'Think of Chuck Norris'),
 (2, 'comedy', 'Think of Eddie Murphy'),
 (3, 'family', 'Think of Disney'),
@@ -229,20 +229,20 @@ INSERT INTO `tbl_cat` (`cat_id`, `cat_name`, `cat_desc`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_director`
+-- Table structure for table tbl_director
 --
 
-CREATE TABLE `tbl_director` (
-  `dir_id` smallint(4) UNSIGNED NOT NULL,
-  `dir_fname` varchar(75) NOT NULL,
-  `dir_lname` varchar(75) NOT NULL
+CREATE TABLE tbl_director (
+  dir_id smallint(4) UNSIGNED NOT NULL,
+  dir_fname varchar(75) NOT NULL,
+  dir_lname varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_director`
+-- Dumping data for table tbl_director
 --
 
-INSERT INTO `tbl_director` (`dir_id`, `dir_fname`, `dir_lname`) VALUES
+INSERT INTO tbl_director (dir_id, dir_fname, dir_lname) VALUES
 (1, 'Ridley', 'Scott'),
 (2, 'Pete', 'Travis'),
 (3, 'Hark', 'Tsui'),
@@ -278,20 +278,20 @@ INSERT INTO `tbl_director` (`dir_id`, `dir_fname`, `dir_lname`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_l_mc`
+-- Table structure for table tbl_l_mc
 --
 
-CREATE TABLE `tbl_l_mc` (
-  `mc_id` smallint(4) UNSIGNED NOT NULL,
-  `movies_id` smallint(4) NOT NULL,
-  `cat_id` smallint(4) NOT NULL
+CREATE TABLE tbl_l_mc (
+  mc_id smallint(4) UNSIGNED NOT NULL,
+  movies_id smallint(4) NOT NULL,
+  cat_id smallint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_l_mc`
+-- Dumping data for table tbl_l_mc
 --
 
-INSERT INTO `tbl_l_mc` (`mc_id`, `movies_id`, `cat_id`) VALUES
+INSERT INTO tbl_l_mc (mc_id, movies_id, cat_id) VALUES
 (1, 22, 1),
 (2, 23, 1),
 (3, 24, 1),
@@ -324,20 +324,20 @@ INSERT INTO `tbl_l_mc` (`mc_id`, `movies_id`, `cat_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_l_md`
+-- Table structure for table tbl_l_md
 --
 
-CREATE TABLE `tbl_l_md` (
-  `md_id` smallint(4) UNSIGNED NOT NULL,
-  `movies_id` smallint(4) NOT NULL,
-  `dir_id` smallint(4) NOT NULL
+CREATE TABLE tbl_l_md (
+  md_id smallint(4) UNSIGNED NOT NULL,
+  movies_id smallint(4) NOT NULL,
+  dir_id smallint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_l_md`
+-- Dumping data for table tbl_l_md
 --
 
-INSERT INTO `tbl_l_md` (`md_id`, `movies_id`, `dir_id`) VALUES
+INSERT INTO tbl_l_md (md_id, movies_id, dir_id) VALUES
 (1, 1, 1),
 (2, 2, 2),
 (3, 3, 3),
@@ -346,51 +346,27 @@ INSERT INTO `tbl_l_md` (`md_id`, `movies_id`, `dir_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_l_mr`
+-- Table structure for table tbl_movies
 --
 
-CREATE TABLE `tbl_l_mr` (
-  `mr_id` smallint(4) NOT NULL,
-  `movies_id` smallint(4) NOT NULL,
-  `review_id` smallint(4) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_l_mr`
---
-
-INSERT INTO `tbl_l_mr` (`mr_id`, `movies_id`, `review_id`) VALUES
-(1, 2, 1),
-(2, 2, 2),
-(3, 1, 20),
-(5, 6, 22),
-(6, 6, 23),
-(7, 3, 24);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_movies`
---
-
-CREATE TABLE `tbl_movies` (
-  `movies_id` smallint(4) UNSIGNED NOT NULL,
-  `movies_thumb` varchar(50) NOT NULL DEFAULT 'noThumb.jpg',
-  `movies_fimg` varchar(50) NOT NULL DEFAULT 'nofImg.jpg',
-  `movies_bimg` varchar(50) NOT NULL DEFAULT 'nobImg.jpg',
-  `movies_title` varchar(75) NOT NULL,
-  `movies_year` varchar(20) NOT NULL,
-  `movies_storyline` text NOT NULL,
-  `movies_runtime` varchar(25) NOT NULL,
-  `movies_trailer` varchar(50) NOT NULL,
-  `movies_price` varchar(25) NOT NULL
+CREATE TABLE tbl_movies (
+  movies_id smallint(4) UNSIGNED NOT NULL,
+  movies_thumb varchar(50) NOT NULL DEFAULT 'noThumb.jpg',
+  movies_fimg varchar(50) NOT NULL DEFAULT 'nofImg.jpg',
+  movies_bimg varchar(50) NOT NULL DEFAULT 'nobImg.jpg',
+  movies_title varchar(75) NOT NULL,
+  movies_year varchar(20) NOT NULL,
+  movies_storyline text NOT NULL,
+  movies_runtime varchar(25) NOT NULL,
+  movies_trailer varchar(50) NOT NULL,
+  movies_price varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_movies`
+-- Dumping data for table tbl_movies
 --
 
-INSERT INTO `tbl_movies` (`movies_id`, `movies_thumb`, `movies_fimg`, `movies_bimg`, `movies_title`, `movies_year`, `movies_storyline`, `movies_runtime`, `movies_trailer`, `movies_price`) VALUES
+INSERT INTO tbl_movies (movies_id, movies_thumb, movies_fimg, movies_bimg, movies_title, movies_year, movies_storyline, movies_runtime, movies_trailer, movies_price) VALUES
 (1, 'TH_Tremors.jpg', 'Tremors.jpg', 'nobImg.jpg', 'Tremors', '1990', 'A small town gradually becomes aware of a strange creature which picks off people one by one. But what is this creature, and where is it? At the same time, a seismologist is working in the area, she detects tremors. The creature lives underground, and can pop up without warning. Trapped in their town, the town-folk have no escape.', '96 min', 'trailer.mp4', '26.99'),
 (2, 'TH_ThePossession.jpg', 'ThePossession.jpg', 'nobImg.jpg', 'The Possession', '2012', 'A young girl buys an antique box at a yard sale, unaware that inside the collectible lives a malicious ancient spirit. The girl\'s father teams with his ex-wife to find a way to end the curse upon their child. ', '92 min', 'trailer.mp4', '26.99'),
 (3, 'TH_PetSematary.jpg', 'PetSematary.jpg', 'nobImg.jpg', 'Pet Sematary', '1989', 'The Creeds have just moved to a new house in the countryside. Their house is perfect, except for two things: the semi-trailers that roar past on the narrow road, and the mysterious cemetary in the woods behind the house. The Creed\'s neighbours are reluctant to talk about the cemetary, and for good reason too.', '103 min', 'trailer.mp4', '22.99'),
@@ -423,19 +399,19 @@ INSERT INTO `tbl_movies` (`movies_id`, `movies_thumb`, `movies_fimg`, `movies_bi
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_rating`
+-- Table structure for table tbl_rating
 --
 
-CREATE TABLE `tbl_rating` (
-  `rating_id` smallint(4) UNSIGNED NOT NULL,
-  `rating_name` varchar(35) NOT NULL
+CREATE TABLE tbl_rating (
+  rating_id smallint(4) UNSIGNED NOT NULL,
+  rating_name varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_rating`
+-- Dumping data for table tbl_rating
 --
 
-INSERT INTO `tbl_rating` (`rating_id`, `rating_name`) VALUES
+INSERT INTO tbl_rating (rating_id, rating_name) VALUES
 (1, '1 star'),
 (2, '2 star'),
 (3, '3 star'),
@@ -445,44 +421,19 @@ INSERT INTO `tbl_rating` (`rating_id`, `rating_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_review`
+-- Table structure for table tbl_studio
 --
 
-CREATE TABLE `tbl_review` (
-  `review_id` smallint(4) NOT NULL,
-  `review_name` varchar(100) NOT NULL,
-  `review_desc` varchar(1000) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_review`
---
-
-INSERT INTO `tbl_review` (`review_id`, `review_name`, `review_desc`) VALUES
-(1, 'Lucas M', 'I liked this movie.'),
-(2, 'Alex Brown', 'I did not like this movie.'),
-(24, 'Sarah', 'RIP Pets'),
-(23, 'Harrey', 'I thought this movie was not very well made.'),
-(19, 'Henry', 'Review for Tremors.'),
-(20, 'David', 'New review for the movie Tremor.'),
-(22, 'Quincy', 'I watched this movie today and it was scary.');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_studio`
---
-
-CREATE TABLE `tbl_studio` (
-  `studio_id` smallint(4) UNSIGNED NOT NULL,
-  `studio_name` varchar(75) NOT NULL
+CREATE TABLE tbl_studio (
+  studio_id smallint(4) UNSIGNED NOT NULL,
+  studio_name varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_studio`
+-- Dumping data for table tbl_studio
 --
 
-INSERT INTO `tbl_studio` (`studio_id`, `studio_name`) VALUES
+INSERT INTO tbl_studio (studio_id, studio_name) VALUES
 (1, 'Sony'),
 (2, 'Lions Gate'),
 (3, 'Beijing Liangzi Group'),
@@ -506,19 +457,19 @@ INSERT INTO `tbl_studio` (`studio_id`, `studio_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_type`
+-- Table structure for table tbl_type
 --
 
-CREATE TABLE `tbl_type` (
-  `type_id` smallint(4) UNSIGNED NOT NULL,
-  `type_name` varchar(35) NOT NULL
+CREATE TABLE tbl_type (
+  type_id smallint(4) UNSIGNED NOT NULL,
+  type_name varchar(35) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_type`
+-- Dumping data for table tbl_type
 --
 
-INSERT INTO `tbl_type` (`type_id`, `type_name`) VALUES
+INSERT INTO tbl_type (type_id, type_name) VALUES
 (1, 'Blu_Ray'),
 (2, 'Blu_Ray Combo Pack'),
 (3, 'Blu_Ray 3D');
@@ -526,30 +477,30 @@ INSERT INTO `tbl_type` (`type_id`, `type_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Table structure for table tbl_user
 --
 
-CREATE TABLE `tbl_user` (
-  `user_id` smallint(4) UNSIGNED NOT NULL,
-  `user_fname` varchar(50) NOT NULL,
-  `user_lname` varchar(50) NOT NULL,
-  `user_name` varchar(50) NOT NULL,
-  `user_pass` varchar(250) NOT NULL,
-  `user_level` varchar(25) NOT NULL,
-  `user_ip` varchar(100) NOT NULL,
-  `user_lstlgn` timestamp NOT NULL,
-  `user_attempt` int(11) NOT NULL,
-  `user_expir` timestamp NOT NULL,
-  `user_email` varchar(300) NOT NULL,
-  `user_create` timestamp NOT NULL,
-  `user_lgnchck` smallint(1) NOT NULL
+CREATE TABLE tbl_user (
+  user_id smallint(4) UNSIGNED NOT NULL,
+  user_fname varchar(50) NOT NULL,
+  user_lname varchar(50) NOT NULL,
+  user_name varchar(50) NOT NULL,
+  user_pass varchar(250) NOT NULL,
+  user_level varchar(25) NOT NULL,
+  user_ip varchar(100) NOT NULL,
+  user_lstlgn timestamp NOT NULL,
+  user_attempt int(11) NOT NULL,
+  user_expir timestamp NOT NULL,
+  user_email varchar(300) NOT NULL,
+  user_create timestamp NOT NULL,
+  user_lgnchck smallint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data for table tbl_user
 --
 
-INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_lname`, `user_name`, `user_pass`, `user_level`, `user_ip`, `user_lstlgn`, `user_attempt`, `user_expir`, `user_email`, `user_create`, `user_lgnchck`) VALUES
+INSERT INTO tbl_user (user_id, user_fname, user_lname, user_name, user_pass, user_level, user_ip, user_lstlgn, user_attempt, user_expir, user_email, user_create, user_lgnchck) VALUES
 (32, 'Justin William', 'Brunner', 'jbrunner', 'password', '1', '0', '2017-03-08 01:57:41', 0, '2017-03-08 01:57:41', '', '0000-00-00 00:00:00', 0),
 (33, 'justin', 'brunner', 'jbrunner', 'Yr5v+C', '1', '0', '2017-03-08 02:01:03', 0, '2017-03-08 02:01:03', '', '0000-00-00 00:00:00', 0),
 (34, 'lcs', 'mclm', 'lcs', 'alas', '2', '::1', '2017-03-26 03:52:25', 0, '2017-03-08 03:32:27', 'lucas.mccallum@outlook.com', '2017-03-08 02:50:44', 1),
@@ -569,141 +520,119 @@ INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_lname`, `user_name`, `use
 --
 
 --
--- Indexes for table `tbl_cast`
+-- Indexes for table tbl_cast
 --
-ALTER TABLE `tbl_cast`
-  ADD PRIMARY KEY (`cast_id`);
+ALTER TABLE tbl_cast
+  ADD PRIMARY KEY (cast_id);
 
 --
--- Indexes for table `tbl_cat`
+-- Indexes for table tbl_cat
 --
-ALTER TABLE `tbl_cat`
-  ADD PRIMARY KEY (`cat_id`);
+ALTER TABLE tbl_cat
+  ADD PRIMARY KEY (cat_id);
 
 --
--- Indexes for table `tbl_director`
+-- Indexes for table tbl_director
 --
-ALTER TABLE `tbl_director`
-  ADD PRIMARY KEY (`dir_id`);
+ALTER TABLE tbl_director
+  ADD PRIMARY KEY (dir_id);
 
 --
--- Indexes for table `tbl_l_mc`
+-- Indexes for table tbl_l_mc
 --
-ALTER TABLE `tbl_l_mc`
-  ADD PRIMARY KEY (`mc_id`);
+ALTER TABLE tbl_l_mc
+  ADD PRIMARY KEY (mc_id);
 
 --
--- Indexes for table `tbl_l_md`
+-- Indexes for table tbl_l_md
 --
-ALTER TABLE `tbl_l_md`
-  ADD PRIMARY KEY (`md_id`);
+ALTER TABLE tbl_l_md
+  ADD PRIMARY KEY (md_id);
 
 --
--- Indexes for table `tbl_l_mr`
+-- Indexes for table tbl_movies
 --
-ALTER TABLE `tbl_l_mr`
-  ADD PRIMARY KEY (`mr_id`);
+ALTER TABLE tbl_movies
+  ADD PRIMARY KEY (movies_id);
 
 --
--- Indexes for table `tbl_movies`
+-- Indexes for table tbl_rating
 --
-ALTER TABLE `tbl_movies`
-  ADD PRIMARY KEY (`movies_id`);
+ALTER TABLE tbl_rating
+  ADD PRIMARY KEY (rating_id);
 
 --
--- Indexes for table `tbl_rating`
+-- Indexes for table tbl_studio
 --
-ALTER TABLE `tbl_rating`
-  ADD PRIMARY KEY (`rating_id`);
+ALTER TABLE tbl_studio
+  ADD PRIMARY KEY (studio_id);
 
 --
--- Indexes for table `tbl_review`
+-- Indexes for table tbl_type
 --
-ALTER TABLE `tbl_review`
-  ADD PRIMARY KEY (`review_id`);
+ALTER TABLE tbl_type
+  ADD PRIMARY KEY (type_id);
 
 --
--- Indexes for table `tbl_studio`
+-- Indexes for table tbl_user
 --
-ALTER TABLE `tbl_studio`
-  ADD PRIMARY KEY (`studio_id`);
-
---
--- Indexes for table `tbl_type`
---
-ALTER TABLE `tbl_type`
-  ADD PRIMARY KEY (`type_id`);
-
---
--- Indexes for table `tbl_user`
---
-ALTER TABLE `tbl_user`
-  ADD PRIMARY KEY (`user_id`);
+ALTER TABLE tbl_user
+  ADD PRIMARY KEY (user_id);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `tbl_cast`
+-- AUTO_INCREMENT for table tbl_cast
 --
-ALTER TABLE `tbl_cast`
-  MODIFY `cast_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=167;
+ALTER TABLE tbl_cast
+  MODIFY cast_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_cat`
+-- AUTO_INCREMENT for table tbl_cat
 --
-ALTER TABLE `tbl_cat`
-  MODIFY `cat_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE tbl_cat
+  MODIFY cat_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_director`
+-- AUTO_INCREMENT for table tbl_director
 --
-ALTER TABLE `tbl_director`
-  MODIFY `dir_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+ALTER TABLE tbl_director
+  MODIFY dir_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_l_mc`
+-- AUTO_INCREMENT for table tbl_l_mc
 --
-ALTER TABLE `tbl_l_mc`
-  MODIFY `mc_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE tbl_l_mc
+  MODIFY mc_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_l_md`
+-- AUTO_INCREMENT for table tbl_l_md
 --
-ALTER TABLE `tbl_l_md`
-  MODIFY `md_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE tbl_l_md
+  MODIFY md_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_l_mr`
+-- AUTO_INCREMENT for table tbl_movies
 --
-ALTER TABLE `tbl_l_mr`
-  MODIFY `mr_id` smallint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE tbl_movies
+  MODIFY movies_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_movies`
+-- AUTO_INCREMENT for table tbl_rating
 --
-ALTER TABLE `tbl_movies`
-  MODIFY `movies_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE tbl_rating
+  MODIFY rating_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_rating`
+-- AUTO_INCREMENT for table tbl_studio
 --
-ALTER TABLE `tbl_rating`
-  MODIFY `rating_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE tbl_studio
+  MODIFY studio_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_review`
+-- AUTO_INCREMENT for table tbl_type
 --
-ALTER TABLE `tbl_review`
-  MODIFY `review_id` smallint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+ALTER TABLE tbl_type
+  MODIFY type_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tbl_studio`
+-- AUTO_INCREMENT for table tbl_user
 --
-ALTER TABLE `tbl_studio`
-  MODIFY `studio_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
---
--- AUTO_INCREMENT for table `tbl_type`
---
-ALTER TABLE `tbl_type`
-  MODIFY `type_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `tbl_user`
---
-ALTER TABLE `tbl_user`
-  MODIFY `user_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+ALTER TABLE tbl_user
+  MODIFY user_id smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

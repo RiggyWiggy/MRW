@@ -12,13 +12,17 @@ var poster = document.querySelectorAll(".poster");
 var video = document.querySelector("video");
 var submitBtn = document.querySelector(".submit-review");
 var httpRequest;
-
+var request;
+var checker;
 //Movie Info - JSON
-
+///Everything seems to be working but I can't get more than one review to load, I know it's because how I'm grabbing it but I'm not fully sure how to get around it.
 $('.poster').on('click', function () {
 //console.log("ajax");
 $.getJSON('includes/ajaxQuery.php', {movie:this.id}, function(data) {
 			//var data = JSON.parse(data);
+
+			var pushid = document.querySelector('.selectedMovie').value = data.movies_id; //Going to put movie ID into field (field will be hidden) for linking table parameters
+
 			$('.filmTitle').text(data.movies_title);
 			$('.filmYear').text('(' + data.movies_year + ')');
 			$('.filmPlot').text(data.movies_storyline);
@@ -28,35 +32,38 @@ $.getJSON('includes/ajaxQuery.php', {movie:this.id}, function(data) {
 			$('.filmTrailer').attr('src', 'videos/' + data.movies_trailer);
 			/*$('.filmHeader').attr('src', 'images/' + data.movies_bimg);*/
 			$('body').css('backgroundImage','url('+'images/' + data.movies_bimg+')');
-
-
-			submitBtn.addEventListener("click", submitReview, false);
-			//console.log(data.movies_id);
-			var checker;
-			function submitReview(e){
-						e.preventDefault();
-				if (!checker) { // only runs once
-    checker = true;
-  	console.log(data.movies_id);
-  }
-
-			}
-
-
 			$.getJSON('includes/ajaxMovie.php', {movid:data.movies_id}, function(data) {
-
-for (var i = 0; i < data.review_id.length; i++) { //Not picking up on the other reviews, I wouldn't have made this the same index.php file and made a seperate details page and pull from that. Seems as though once you open up a single result in ajax, you cant semm to pull multiple results within that single result
-			console.log(data.review_id.length);
+for (var i = 0; i < data.review_id.length; i++) {
+	//Not picking up/looping the other reviews, the reviews maybe should have been loaded in a seperate file and not index.php?
+	//Everything is working just not loading more than 1 review
+  //console.log(data.review_id.length);
 					$.getJSON('includes/ajaxReview.php', {revid:data.review_id}, function(data) {
 							$('.review-name').text(data.review_name);
 								$('.review-desc').text(data.review_desc);
-								//console.log(data.review_name);
+
 					});
 }
-
 				});
 	});
+});
 
+//$("#reviewForm").submit(function(event){
+$(document).on('click','.submit-review',function(event) {
+			event.preventDefault();
+// 	if (!checker) { // only runs once
+// checker = true;
+//var $form = $("#reviewForm");
+//var $inputs = $form.find("input, select, button, textarea");
+//console.log(data.movies_id); //Can be passed to submit to linking table
+var serializedData = $("#reviewForm").serialize();
+console.log(serializedData);
+$.ajax({
+         data: serializedData,
+         type: "POST",
+         url: "includes/reviews.php",
+});
+
+//}
 
 });
 
@@ -81,6 +88,9 @@ function changeRequest(){
 			$('.poster').on('click', function () {
 			//console.log("ajax");
 			$.getJSON('includes/ajaxQuery.php', {movie:this.id}, function(data) {
+						//var data = JSON.parse(data);
+
+						var pushid = document.querySelector('.selectedMovie').value = data.movies_id; //Going to put movie ID into field (field will be hidden) for linking table parameters
 
 						$('.filmTitle').text(data.movies_title);
 						$('.filmYear').text('(' + data.movies_year + ')');
@@ -92,20 +102,18 @@ function changeRequest(){
 						/*$('.filmHeader').attr('src', 'images/' + data.movies_bimg);*/
 						$('body').css('backgroundImage','url('+'images/' + data.movies_bimg+')');
 						$.getJSON('includes/ajaxMovie.php', {movid:data.movies_id}, function(data) {
-
-			for (var i = 0; i < data.review_id.length; i++) { //Not pickingg up on the other reviews
-
+			for (var i = 0; i < data.review_id.length; i++) {
+				//Not picking up/looping the other reviews, the reviews maybe should have been loaded in a seperate file and not index.php?
+				//Everything is working just not loading more than 1 review
+			  //console.log(data.review_id.length);
 								$.getJSON('includes/ajaxReview.php', {revid:data.review_id}, function(data) {
 										$('.review-name').text(data.review_name);
 											$('.review-desc').text(data.review_desc);
 
 								});
-			};
-
+			}
 							});
 				});
-
-
 			});
 			for(var i=0; i < poster.length; i++){
 				poster[i].addEventListener("click", detailsShow, false);

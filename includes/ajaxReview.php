@@ -10,9 +10,9 @@
 	$mysqli->set_charset("utf8");
 
 
-	$movies = $_GET["revid"];
+	$reviewid = $_GET["revid"];
 
-	$myQuery = "SELECT * FROM tbl_review WHERE review_id ='$movies'";
+	$myQuery = "SELECT * FROM tbl_review WHERE review_id ='$reviewid' ";
 
 	$result = mysqli_query($mysqli, $myQuery);
 

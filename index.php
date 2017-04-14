@@ -85,7 +85,7 @@
 			//echo "Object";
 			while($row = mysqli_fetch_array($getMovies)){
 
-			echo " <div class='small-6 medium-4 large-2 columns'>";
+			echo " <div class='small-6 medium-4 large-2 columns movie-single'>";
 			echo "<img src=\"images/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
 			echo "</div>";
 			}
@@ -153,9 +153,8 @@
 
     <div id="reviewContent">
       <section class="row infoCon" id="reviewFormCon">
-
-
-
+<h3 class='review-confirmation'></h3>
+<h2>Latest Review:</h2>
 
 
 
@@ -169,6 +168,8 @@
 
         <?php
 //AJAX Comments Go Here
+
+
 ?>
 </div>
 
@@ -182,16 +183,18 @@
 
 
 
-<form id="reviewForm" action="index.php" method="post">
+<form id="reviewForm" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
           <fieldset>
             <label for="name">Name:</label>
-            <input type="text"  id="fname" name="name" size="30" placeholder="Username:" value="">
+            <input type="text" name="name" size="30" placeholder="Author:" value="">
+						<input type="text" name="movie" size="30" class='selectedMovie' placeholder="Movie:" value="">
             <label for="comments">Your Review:</label>
-            <textarea name="comments" id="comments" cols="50" rows="8" placeholder="Your review goes here"></textarea>
+            <textarea name="comments"  cols="50" rows="8" placeholder="Your review goes here"></textarea>
             <div class="text-center">
-              <input class='submit-review' id="submit" type="submit" name="submit" value="Share">
+              <input class='submit-review' id="submit" type="submit" name="submit" value="submit">
             </div>
           </fieldset>
+
         </form>
 <!--</section>-->
 
