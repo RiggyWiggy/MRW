@@ -154,7 +154,7 @@
     <div id="reviewContent">
       <section class="row infoCon" id="reviewFormCon">
 
-<h2>Latest Review:</h2>
+<h2 class='text-center'>Latest Review:</h2>
 
 
 
