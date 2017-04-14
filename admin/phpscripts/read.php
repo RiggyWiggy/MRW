@@ -28,7 +28,6 @@ mysqli_close($link);
 
 function getSingle($tbl, $col, $id) {
 require_once("connect.php");
-
 $querySingle = "SELECT * FROM {$tbl} WHERE {$col}={$id}";
 //echo $querySingle;
 $runSingle = mysqli_query($link, $querySingle);

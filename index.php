@@ -1,29 +1,20 @@
 <?php
 //	ini_set("display_errors", 1);
 //	error_reporting(E_ALL); //MAC
-
 	require_once("admin/phpscripts/init.php");
-
 	$tbl = "tbl_movies";
-
 	if(isset($_GET['filter'])){
 		//echo $_GET['filter'];
 		$filter = $_GET['filter'];
-
-
 		$tbl1 = "tbl_genre";
 		$tbl2 = "tbl_l_gg";
 		$col = "games_id";
 		$col1 = "genre_id";
 		$col2 = "genre_name";
 		$getMovies = filterType($tbl, $tbl1, $tbl2, $col, $col1, $col2, $filter);
-
-
-
 	}else{
 	$getMovies = getAll($tbl);
 	}
-
 ?>
 
 <!doctype html>
@@ -84,13 +75,11 @@
 			if(!is_string($getMovies)) {
 			//echo "Object";
 			while($row = mysqli_fetch_array($getMovies)){
-
 			echo " <div class='small-6 medium-4 large-2 columns movie-single'>";
 			echo "<img src=\"images/{$row['movies_thumb']}\" alt=\"{$row['movies_title']}\" class='poster' id=\"{$row['movies_title']}\"> ";
 			echo "</div>";
 			}
 		}
-
 ?>
     </div>
   </section>
@@ -168,8 +157,6 @@
 
         <?php
 //AJAX Comments Go Here
-
-
 ?>
 </div>
 
